@@ -45,4 +45,26 @@ test.describe("Login", () => {
       await loginPage.verificaMensagemErro();
     });
   });
+
+  test("tentativa de login sem preenchimento de usuário", async () => {
+    await test.step("Act", async () => {
+      await loginPage.digitaSenha(usuarios[1].senhaValida);
+      await loginPage.clicaLogin();
+    });
+
+    await test.step("Assert", async () => {
+      await loginPage.verifcaUsuario();
+    });
+  });
+
+  test("tentativa de login sem preenchimento de senha", async () => {
+    await test.step("Act", async () => {
+      await loginPage.digitaUsuario(usuarios[0].usuarioValido);
+      await loginPage.clicaLogin();
+    });
+
+    await test.step("Assert", async () => {
+      await loginPage.verifcaSenha();
+    });
+  });
 });

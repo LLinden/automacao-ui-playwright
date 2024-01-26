@@ -6,6 +6,8 @@ export class LoginPage {
   readonly campoSenha: Locator;
   readonly botaoLogin: Locator;
   readonly mensagemErro: Locator;
+  readonly mensagemUsuario: Locator;
+  readonly mensagemSenha: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -13,6 +15,8 @@ export class LoginPage {
     this.campoSenha = page.getByPlaceholder("Password");
     this.botaoLogin = page.getByRole("button", { name: /login/i });
     this.mensagemErro = page.getByText("Epic sadface: Username and password do not match any user in this service");
+    this.mensagemUsuario = page.getByText("Epic sadface: Username is required");
+    this.mensagemSenha = page.getByText("Epic sadface: Password is required");
   }
 
   async digitaUsuario(usuario) {
@@ -33,6 +37,14 @@ export class LoginPage {
 
   async verificaMensagemErro() {
     await expect(this.mensagemErro).toBeVisible();
+  }
+
+  async verifcaUsuario() {
+    await expect(this.mensagemUsuario).toBeVisible();
+  }
+
+  async verifcaSenha() {
+    await expect(this.mensagemSenha).toBeVisible();
   }
 }
 
