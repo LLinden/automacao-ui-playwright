@@ -2,7 +2,8 @@
     "usuarios":[
         {
             "usuarioValido": "standard_user",
-            "senha": "secret_sauce"
+            "senhaValida": "secret_sauce",
+            "senhaInvalida": "123"
         }
     ]
 }
