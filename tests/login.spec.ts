@@ -33,4 +33,16 @@ test.describe("Login", () => {
       await loginPage.verificaMensagemErro();
     });
   });
+
+  test("tentativa de login com usuário inválido", async () => {
+    await test.step("Act", async () => {
+      await loginPage.digitaUsuario(usuarios[1].usuarioInvalido);
+      await loginPage.digitaSenha(usuarios[1].senhaValida);
+      await loginPage.clicaLogin();
+    });
+
+    await test.step("Assert", async () => {
+      await loginPage.verificaMensagemErro();
+    });
+  });
 });

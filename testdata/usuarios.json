@@ -1,9 +1,13 @@
 {
-    "usuarios":[
+    "usuarios": [
         {
             "usuarioValido": "standard_user",
             "senhaValida": "secret_sauce",
             "senhaInvalida": "123"
+        },
+        {
+            "usuarioInvalido": "teste",
+            "senhaValida": "secret_sauce"
         }
     ]
 }
